@@ -23,6 +23,18 @@ static void word() {
   }
 }
 
+static void process_web_directive() {
+  switch (auto c = take()) {
+    case ' ':
+    case '!':
+    case '*': process_tex(); return;
+    case '.':
+    case '^':
+    case ':': until_eol(); process_tex(); return;
+    default: die("[", c, "]");
+  }
+}
+
 static void process_tex() {
   while (*g_ptr) {
     switch (take()) {
@@ -30,7 +42,7 @@ static void process_tex() {
       case '\\': word(); break;
       case ' ': break;
       case '%': until_eol(); break;
-      case '@': die("@", take()); break;
+      case '@': process_web_directive(); return;
       case '{': break;
       case '}': break; // TODO: balance?
       default: break;
