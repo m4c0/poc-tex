@@ -1,5 +1,13 @@
 % Rewritting the following example to be compatible with an empty TeX format:
 % https://tex.stackexchange.com/a/6493
+%
+% Most rules and constants are a mix of rules from the original example and
+% stuff defined in 'plain.tex'
+%
+% Also, sprinkling some ABNT (Brazilian Authority on Technical Norms) just
+% because their rules rendered LaTeX impossible to use back in 2005.
+%
+% Missing: hyphenization
 
 \catcode`\{=1
 \catcode`\}=2
@@ -24,14 +32,21 @@
 %
 
 \baselineskip=12pt
+\parindent=20pt
+\parskip=12pt % Not really ABNT, but just illustrates a point
 
-\countdef\pagenumber=0
-\pagenumber=1
+\countdef\pagenumber=0 \pagenumber=1
+\chardef\foot=20
 
 \output {
   \shipout\vbox {
     \vbox to \vsize {
       \unvbox 255
+
+      \hrule width 2 true in
+      \vskip 0.2em
+      \unvbox \foot
+      \vskip 1em
       \hbox to \hsize {
         \footsc The electronic journal of combinatorics {\footbf 16}, #R00
         \hss
@@ -57,9 +72,9 @@
 \vskip 12pt plus 4pt minus 4pt
 \vskip 12pt plus 4pt minus 4pt
 
-\hbox to \hsize {\hss D. Remifa \hss}
-%\centerline{D. Remifa\footnote*{Thanks to
-%  the editors of this wonderful journal!}}
+\hbox to \hsize {\hss D. Remifa*\hss}
+\insert\foot { * Thanks to the editors of this wonderful journal! }
+
 \vskip 3pt plus 1pt minus 1pt
 \hbox to \hsize {\hss Department of Inconsequential Studies \hss}
 \hbox to \hsize {\hss Solatido College, North Kentucky, USA \hss}
@@ -106,12 +121,17 @@
 { \penalty 10000 }
 \vskip 3pt plus 1pt minus 1pt
 \noindent
-
 Maxime dolores aut commodi totam aut maiores id. Doloribus recusandae corrupti
 enim nesciunt earum qui voluptatem sed. Et fugit sapiente ullam qui et
 suscipit. Temporibus qui similique unde. Mollitia doloribus atque neque beatae
 animi. Neque quia et quia quod corrupti fugit.
 
+Deserunt et amet et atque quibusdam voluptas incidunt deleniti. Ipsum
+asperiores qui rerum eos. Enim repellat et minus quia saepe non. Tenetur atque
+et corporis voluptas recusandae beatae. Qui quo exercitationem recusandae
+perferendis hic accusantium.
+
+% \bye - do we need it?
 %{
 %\par
 %\vfill
