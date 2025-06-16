@@ -1,0 +1,104 @@
+% Rewritting the following example to be compatible with an empty TeX format:
+% https://tex.stackexchange.com/a/6493
+
+\catcode`\{=1
+\catcode`\}=2
+
+\mag 1200
+
+\parfillskip=0pt plus 1fil
+\hsize=6.5truein
+\vsize=8.7truein
+
+\baselineskip=12pt
+
+\countdef\pagenumber=0
+\pagenumber=1
+
+\output {
+  \shipout\vbox {
+    \vbox to \vsize {
+      \unvbox 255
+      \hbox to \hsize {
+        \footsc The electronic journal of combinatorics {\footbf 16}, #R00
+        \hss
+        \footrm Page \number\pagenumber
+      }
+    }
+  }
+  \global\advance \pagenumber 1
+}
+
+\font\normal=cmr10
+\font\big=cmr12 at 14pt
+\font\footsc=cmcsc10 at 8truept
+\font\footbf=cmbx10 at 8truept
+\font\footrm=cmr10 at 10truept
+\font\bold=cmbx10
+\font\fixed=cmtt10
+
+\fam 0pt \normal
+
+\hbox to \hsize {\hss \big An elementary proof of the reconstruction conjecture\hss}
+
+\vskip 12pt plus 4pt minus 4pt
+\vskip 12pt plus 4pt minus 4pt
+
+\hbox to \hsize {\hss D. Remifa \hss}
+%\centerline{D. Remifa\footnote*{Thanks to
+%  the editors of this wonderful journal!}}
+\vskip 3pt plus 1pt minus 1pt
+\hbox to \hsize {\hss Department of Inconsequential Studies \hss}
+\hbox to \hsize {\hss Solatido College, North Kentucky, USA \hss}
+\hbox to \hsize {\hss \fixed remifa@dis.solatido.edu \hss}
+
+\vskip 12pt plus 4pt minus 4pt
+
+\hbox to \hsize {\hss \footrm 
+  Submitted: Jan 1, 2009; Accepted: Jan 2, 2009; Published: Jan 3, 2009
+\hss}
+\hbox to \hsize {\hss \footrm Mathematics Subject Classifications: 05C88, 05C89 \hss}
+
+\vskip 12pt plus 4pt minus 4pt
+\vskip 12pt plus 4pt minus 4pt
+
+\hbox to \hsize {\hss \bold Abstract \hss}
+\vskip 3pt plus 1pt minus 1pt
+{
+\advance \leftskip  20pt
+\advance \rightskip 20pt
+\noindent
+  The reconstruction conjecture states that the multiset of unlabeled
+  vertex-deleted subgraphs of a graph determines the graph, provided it
+  has at least 3 vertices.  A version of the problem was first stated
+  by Stanislaw Ulam.  In this paper, we show that the conjecture can
+  be proved by elementary methods.  It is only necessary to integrate
+  the Lenkle potential of the Broglington manifold over the quantum
+  supervacillatory measure in order to reduce the set of possible
+  counterexamples to a small number (less than a trillion).  A simple
+  computer program that implements Pipletti's classification theorem
+  for torsion-free Aramaic groups with simplectic socles can then
+  finish the remaining cases.
+\par
+}
+
+\vskip 12pt plus 4pt minus 4pt
+
+\vskip 0pt plus .3 \vsize
+\penalty -250
+\vskip 0pt plus -.3 \vsize
+\vskip 12pt plus 4pt minus 4pt
+\vskip 0pt plus 1pt
+\hbox to \hsize {\bold 1. Introduction \hss}
+{ \penalty 10000 }
+\vskip 3pt plus 1pt minus 1pt
+\noindent
+
+This is the start of the introduction.
+%{
+%\par
+%\vfill
+%\par
+%\penalty -20000
+%}
+\end
